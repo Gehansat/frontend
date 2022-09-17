@@ -57,36 +57,14 @@ function View(){
         
     
       }
-    
-      
+   
 
-
-
-
-
-
-//   const deleteNotice = (noticeId) => {
-//     axios
-//       .delete(`http://localhost:8070/notice/deleteNotice/${noticeId}`)
-//       .then((res) => {
-//         alert(`deleted successfully`);
-//         window.location.reload(false);
-//       })
-//       .catch((err) => {
-//         alert(err);
-//       });
-//   };
-
-//   const UpdateNotice=(noticeId)=>{
-//     console.log("erroe")
-//      Navigate('updateNotice',{ state: { id: noticeId } }
-//      )
 
 
     return(
 <center>
         <div>
-            <table>
+            <table border = "2">
         <thead>
             <tr>
             <th >Capacity</th>
@@ -109,7 +87,7 @@ function View(){
                 <td>{item.Description}</td>
                 
                 <td>
-                  <button onClick={() => deleteBoat(item._id)}>Delete</button>
+                  <button font-color="red"onClick={() => deleteBoat(item._id)}>Delete</button>
                 </td>
 
                 <td>

@@ -57,7 +57,7 @@ function UpdateBoat(props) {
         e.preventDefault();
         axios.put(`http://localhost:8080/Boat/update/${location.state.Id}`, UpdateBoat)
         .then(()=> {
-            alert("Boat hi Updated")
+            alert("Boat Updated")
             navigate("/");
         
         }).catch((err)=> {
