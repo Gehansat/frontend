@@ -1,4 +1,4 @@
-import React,{useState} from "react"
+import React,{useState} from "react";
 import axios from "axios";
 
 export default function AddBoat(){
@@ -36,7 +36,7 @@ export default function AddBoat(){
 
   <div class="form-group">
     <label for="Capacity">Capacity</label>
-    <input type="text" className="form-control" id="Capacity" placeholder="Enter the boat capacity" 
+    <input type="Number" className="form-control" id="Capacity" placeholder="Enter the boat capacity" 
     onChange={(e)=>{
         setCapacity(e.target.value);
     }}/>
@@ -53,7 +53,7 @@ export default function AddBoat(){
 
   <div className="form-group">
     <label for="Cost">Cost</label>
-    <input type="text" className="form-control" id="Cost" placeholder="Enter the boat cost" 
+    <input type="Number" className="form-control" id="Cost" placeholder="Enter the boat cost" 
      onChange={(e)=>{
         setCost(e.target.value);
     }}/>
