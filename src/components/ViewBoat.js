@@ -50,7 +50,7 @@ function View(){
       };
     
 
-      const UpdateBoat=(boatId)=>{
+      const update=(boatId)=>{
         console.log("error")
          Navigate('update',{ state: { id: boatId } }
          )
@@ -64,7 +64,9 @@ function View(){
     return(
 <center>
         <div>
-            <table border = "2">
+          <br></br>
+          <br></br>
+            <table border = "2" width="95%">
         <thead>
             <tr>
             <th >Capacity</th>
@@ -87,11 +89,11 @@ function View(){
                 <td>{item.Description}</td>
                 
                 <td>
-                  <button font-color="red"onClick={() => deleteBoat(item._id)}>Delete</button>
+                  <button id="btn" onClick={() => deleteBoat(item._id)}>Delete</button>
                 </td>
 
                 <td>
-                <button onClick={() => UpdateBoat(item._id)}>Update</button>
+                <button id="btn" onClick={() => update(item._id)}>Update</button>
                 {}
                 </td>
 

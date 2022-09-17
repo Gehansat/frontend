@@ -30,11 +30,11 @@ export default function AddBoat(){
 
     return(
 
-        <div className="container">
+        <div className="container" style={{border: '2px solid rgba(0,255,0,0.3)'}}>
         
         <form onSubmit={sendData}>
 
-  <div class="form-group">
+  <div class="form-group" >
     <label for="Capacity">Capacity</label>
     <input type="Number" className="form-control" id="Capacity" placeholder="Enter the boat capacity" 
     onChange={(e)=>{
