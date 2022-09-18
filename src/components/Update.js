@@ -5,14 +5,13 @@
 
 import React,{useState ,useEffect} from "react";
 import axios from "axios";
-import {useLocation} from "react-router-dom";
+import {Navigate, useLocation} from "react-router-dom";
 
 
 // import IconButton from '@material-ui/core/IconButton';
 // import RemoveIcon from '@material-ui/icons/Remove';
 // import AddIcon from '@material-ui/icons/Add';
 
-//Tri=Boat
 
 function Update(){
 
@@ -38,12 +37,14 @@ function Update(){
             Type,
             Cost,
             Description
+
         }
 
         
         // creating axios request for send data to backend
-        axios.post(`http://localhost:8080/Boat/update/${id}`,newBoatdata).then(()=>{
+        axios.post(`http://localhost:8080/Boat/update/`,Update).then(()=>{
             alert("Submit")
+            // Navigate("/")
             
             
         }).catch((err)=>{
@@ -59,7 +60,7 @@ function Update(){
        <div style={{border: '2px solid rgba(0,255,0,0.3)'}}>
 
         <br></br>
-        <h3 style={{ marginLeft:'35%'}}>Update Boat Details</h3>
+        <h3 style={{ marginLeft:'35%'}}>ADD Boat DETAILS</h3>
         <br></br>
 
         <form style={{ marginLeft:'25px',marginRight:'15px'}} onSubmit={sendData}>

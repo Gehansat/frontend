@@ -50,9 +50,9 @@ function View(){
       };
     
 
-      const update=(boatId)=>{
+      const Update=(boatId)=>{
         console.log("error")
-         Navigate('update',{ state: { id: boatId } }
+         Navigate('Update',{ state: { id: boatId } }
          )
         
     
@@ -93,7 +93,7 @@ function View(){
                 </td>
 
                 <td>
-                <button id="btn" onClick={() => update(item._id)}>Update</button>
+                <button id="btn" onClick={() => Update(item._id)}>Update</button>
                 {}
                 </td>
 
