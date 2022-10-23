@@ -1,0 +1,16 @@
+.ucontainer{
+    background-image:url(../src/images/929286.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    background-position: center;
+}
+
+.uform{
+    
+    
+    background-color: rgb(238, 192, 113);
+    opacity: 0.80;
+    border-radius: 1%;
+
+}

@@ -1,6 +1,7 @@
 import React,{useState} from "react";
 import axios from "axios";
 
+//add boat funtion
 export default function AddBoat(){
 
     const [Capacity, setCapacity] = useState("");
@@ -29,10 +30,16 @@ export default function AddBoat(){
     }
 
     return(
-
-        <div className="container" style={{border: '2px solid rgba(0,255,0,0.3)'}}>
-        
-        <form onSubmit={sendData}>
+      
+//form to get data--------------------------------------------------------------------------------
+        <html><body>
+          <div class="bd">
+          <br></br>
+          <br></br>
+          
+        <div className="container" >
+        <center><h3>Add Boat</h3></center><br></br>
+        <form onSubmit={sendData} id="fbd">
 
   <div class="form-group" >
     <label for="Capacity">Capacity</label>
@@ -44,7 +51,7 @@ export default function AddBoat(){
 
   <div className="form-group">
     <label for="Type">Type</label>
-    <input type="text" className="form-control" id="Type" placeholder="Enter the boat type" 
+    <input type="text" className="form-control" id="Type" placeholder="Class A / Class B / Class C" 
     onChange={(e)=>{
         setType(e.target.value);
     
@@ -70,7 +77,10 @@ export default function AddBoat(){
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>    
 </div>
-       
+</div>
+</body>
+
+       </html>
 
     )
 

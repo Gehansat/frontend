@@ -2,8 +2,11 @@
 import Header from './components/Header';
 import AddBoat from "./components/AddBoat";
 import ViewBoat from "./components/ViewBoat";
-import Update from "./components/Update";
+import BoatUpdate from "./components/BoatUpdate";
 import './ViewBoat.css';
+//import './Header.css';
+import './AddBoat.css';
+import './BoatUpdate.css';
 
 //import {BrowserRouter as Router, Route} from "react-router-dom";
 
@@ -29,7 +32,7 @@ function App() {
             
             <Route path="/add" exact element={<AddBoat/>} />
             <Route path="/" exact element={<ViewBoat/>} />
-            <Route path="/update" exact element={<Update/>} />
+            <Route path="/update" exact element={<BoatUpdate/>} />
           </Routes>
         </BrowserRouter>
 

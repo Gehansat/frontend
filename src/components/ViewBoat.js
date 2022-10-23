@@ -1,9 +1,10 @@
 import axios from "axios";
-import React,{ useState, useEffect } from "react";
+import React,{ useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import { useDownloadExcel} from "react-export-table-to-excel";
 
 
-
+//funtion for View boat details---------------------------------------------------------------
 function View(){
 
     const [boats, setBoats] = useState([]);
@@ -24,19 +25,24 @@ function View(){
     getBoats();
   }, []);
 
-
-  
-    function getBoats(){
-      axios.get("http://localhost:8080/Boat/").then((res)=>{
-        setBoats(res.data);
-  
-      }).catch((err)=>{
-        console.log(err.message)
-        alert(err.message)
-      })
-    }
-  
+  const updateBoat=(id)=>{
+    sessionStorage.editboat_id = id;
+    // alert(sessionStorage.editboat_id);
    
+    window.location = `http://localhost:3000/update/?${id}`;
+ }
+  
+    // function getBoats(){
+    //   axios.get("http://localhost:8080/Boat/").then((res)=>{
+    //     setBoats(res.data);
+  
+    //   }).catch((err)=>{
+    //     console.log(err.message)
+    //     alert(err.message)
+    //   })
+    // }
+  
+   /////delete boat------------------------------
     const deleteBoat = (boatId) => {
         axios
           .delete(`http://localhost:8080/Boat/delete/${boatId}`)
@@ -58,20 +64,35 @@ function View(){
     
       }
    
+      const boatTabel = useRef(null)
+
+    const { onDownload } = useDownloadExcel({
+        currentTableRef: boatTabel.current,
+        filename: "boat report",
+        sheet: "boats"
+      });
+
+
+
 
 
 
     return(
-<center>
+
+
+//displaying boat details in a table-------------------------------------------
+
+<center><div class="bd"><br></br>
+  <h2>Boat List</h2>
         <div>
           <br></br>
-          <br></br>
-            <table border = "2" width="95%">
+          
+            <table border = "2"  id="MainTable" ref={boatTabel}>
         <thead>
             <tr>
             <th >Capacity</th>
               <th >Type</th>
-              <th >Cost</th>
+              <th >Cost(Rs.)</th>
               <th >Description</th>
              
               <th >Remove</th>
@@ -81,19 +102,19 @@ function View(){
             </thead>
 
             <tbody>
-            {boats.map((item) => (
+            {boats.map((boat) => (
               <tr>
-                <td>{item.Capacity}</td>
-                <td>{item.Type}</td>
-                <td>{item.Cost}</td>
-                <td>{item.Description}</td>
+                <td>{boat.Capacity}</td>
+                <td>{boat.Type}</td>
+                <td>{boat.Cost}</td>
+                <td>{boat.Description}</td>
                 
                 <td>
-                  <button id="btn" onClick={() => deleteBoat(item._id)}>Delete</button>
+                  <button id="btn" onClick={() => deleteBoat(boat._id)}>Delete</button>
                 </td>
 
                 <td>
-                <button id="btn" onClick={() => Update(item._id)}>Update</button>
+                <button id="btn" onClick={() => updateBoat(boat._id)}>Update</button>
                 {}
                 </td>
 
@@ -102,6 +123,11 @@ function View(){
             ))}
             </tbody>
         </table>
+
+<br></br>
+<button type="button" onClick={onDownload} className="btn btn-success float-right m-3">Download report</button>
+
+        </div>
         </div>
         </center>
     )

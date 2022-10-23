@@ -54,7 +54,7 @@ function Update(){
 
     return (
 
-    <div className="container" >
+    <div className="container" style={{border: '2px solid rgba(0,255,0,0.3)'}}>
 
         <br></br>
        <div style={{border: '2px solid rgba(0,255,0,0.3)'}}>
